@@ -31,12 +31,12 @@ public class FilePathData {
                 System.out.println("Böyle bir dosya yoktur " + path + " adında dosya oluşturuldu");
                 System.out.println("Permission: Çalışabilir mi ?" + file.canExecute() + " Okunabilinir mi ? " + file.canRead() + " Yazılabilir mi ?" + file.canWrite());
                 System.out.println("ID: " + this.id + "URL: " + this.path + " " + file.getName() + " PATH: " + file.getPath());
+                // dosyaya default 4 hak verildi.
+                fileWriterRemainingNumber(4);
+                System.out.println("Default Kalan hak: "+fileReaderRemainingNumber());
             } else {
                 System.out.println(path + " Böyle bir dosya adı zaten var tekrardan oluşturulmadı !!!");
             }
-            // dosyaya default 4 hak verildi.
-            fileWriterRemainingNumber();
-            System.out.println("Kalan hak: "+fileReaderRemainingNumber());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -44,9 +44,11 @@ public class FilePathData {
 
     //// METOTLAR //////////////////////////////////
     // FileWriter
-    private void fileWriterRemainingNumber() {
+    public void fileWriterRemainingNumber(int counter) {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(this.path, false))) {
             bufferedWriter.write("4");
+            // Dikkat: File Yazarken Stirnf olarak yazmalıyız yoksa EOT olarak
+            bufferedWriter.write(String.valueOf(counter));
             bufferedWriter.flush();
         } catch (Exception e) {
             e.printStackTrace();
@@ -54,7 +56,7 @@ public class FilePathData {
     }
 
     // FileReader
-    private Integer fileReaderRemainingNumber() {
+    public Integer fileReaderRemainingNumber() {
         String rows; // okunan satır
         Integer numberOfRights = null; //kalan hak sayısı
         String readRows;

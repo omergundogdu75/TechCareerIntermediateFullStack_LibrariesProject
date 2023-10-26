@@ -15,7 +15,7 @@ public interface IDaoGenerics <T> {
 
     // C R U D
     // CREATE
-    public void create(T t);
+    public T create(T t);
 
     // FIND BY ID
     public T findById(Long id);

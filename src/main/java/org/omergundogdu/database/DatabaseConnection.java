@@ -16,7 +16,7 @@ public class DatabaseConnection extends DatabaseInformation {
     // For Database
     private Connection connection; // import java.sql.Connection;
 
-    // Singleton design Pattern (Class)
+    // Design Pattern (Creational Singleton design Pattern (Class)
     private static DatabaseConnection instance;
 
     // Singleton design Pattern (Constructor)
@@ -47,15 +47,23 @@ public class DatabaseConnection extends DatabaseInformation {
         return instance;
     }
 
-
+    // GÖVDESİZ METOT GELEN
     @Override
     public void databaseInfo() {
         System.out.println("Database Information: " + super.getUrl() + " " + super.getForNameData() + " " + super.getPassword() + " " + super.getUser());
     }
 
+    // GETTER AND SETTER
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public void setConnection(Connection connection) {
+        this.connection = connection;
+    }
 
     // TEST
     public static void main(String[] args) {
-        DatabaseConnection databaseConnection = new DatabaseConnection();
+        //DatabaseConnection databaseConnection = new DatabaseConnection();
     }
 } //end class

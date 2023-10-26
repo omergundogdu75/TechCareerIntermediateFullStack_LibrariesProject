@@ -1,15 +1,9 @@
 package org.omergundogdu.utils;
 
-import lombok.Data;
-import lombok.extern.log4j.Log4j2;
-
 import java.io.*;
 import java.util.Date;
 import java.util.UUID;
 
-// LOMBOK
-@Data
-@Log4j2
 public class FilePathData {
 
     // Variable
@@ -21,8 +15,8 @@ public class FilePathData {
     private Date sytemCreatedDate;
 
     // parametresiz constructor
-    // URL URI*
-    // Relative path absolute path *
+    // URL URI
+    // Relative path absolute path
     public FilePathData() {
         id = UUID.randomUUID().toString();
         sytemCreatedDate = new Date(System.currentTimeMillis());
@@ -48,6 +42,7 @@ public class FilePathData {
         }
     }
 
+    //// METOTLAR //////////////////////////////////
     // FileWriter
     private void fileWriterRemainingNumber() {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(this.path, false))) {
@@ -76,9 +71,59 @@ public class FilePathData {
         return numberOfRights;
     }
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //GETTER AND SETTER
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getPathFileName() {
+        return pathFileName;
+    }
+
+    public void setPathFileName(String pathFileName) {
+        this.pathFileName = pathFileName;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
+    }
+
+    public Date getSytemCreatedDate() {
+        return sytemCreatedDate;
+    }
+
+    public void setSytemCreatedDate(Date sytemCreatedDate) {
+        this.sytemCreatedDate = sytemCreatedDate;
+    }
+
     public static void main(String[] args) {
-        FilePathData filePathData = new FilePathData();
-        System.out.println(filePathData);
+        //FilePathData filePathData = new FilePathData();
+        //System.out.println(filePathData);
     }
 } //end class
 

@@ -1,13 +1,9 @@
 package org.omergundogdu.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.io.Serializable;
 import java.util.Date;
 
-@Getter
-@Setter
+// BaseDto
 public class BaseDto implements Serializable {
 
     // Serileştirme
@@ -17,13 +13,12 @@ public class BaseDto implements Serializable {
     protected Long id;
     protected Date systemCreatedDate;
 
-    // Constructor
-    // parametresiz constructor
+    // Constructor (parametresiz)
     public BaseDto() {
         systemCreatedDate = new Date(System.currentTimeMillis());
     }
 
-    // parametresiz constructor
+    //  constructor (parametreli)
     public BaseDto(Long id, Date systemCreatedDate) {
         this.id = id;
         this.systemCreatedDate = systemCreatedDate;

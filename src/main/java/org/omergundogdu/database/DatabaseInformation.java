@@ -1,12 +1,5 @@
 package org.omergundogdu.database;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-// LOMBOK
-
-
 abstract public class DatabaseInformation {
 
     // Variable
@@ -33,9 +26,9 @@ abstract public class DatabaseInformation {
     }
 
     // Gövdesiz metot
-    abstract public  void databaseInfo();
+    abstract public void databaseInfo();
 
-
+    //     GETTER AND SETTER
     public String getUrl() {
         return url;
     }
@@ -67,4 +60,4 @@ abstract public class DatabaseInformation {
     public void setForNameData(String forNameData) {
         this.forNameData = forNameData;
     }
-}
+} //end class

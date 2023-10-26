@@ -1,5 +1,4 @@
 package org.omergundogdu.dto;
-
 import java.io.Serializable;
 import java.util.Date;
 
@@ -13,22 +12,31 @@ public class RegisterDto extends  BaseDto implements Serializable {
     private String uNickName;
     private String uEmailAddress;
     private String uPassword;
+    private int remainingNumber;
+    private Boolean isPassive;
 
-    // Constructor
+    // Constructor (parametresiz)
     public RegisterDto() {
     }
 
-    public RegisterDto(String uNickName, String uEmailAddress, String uPassword) {
+    // Constructor (parametreli)
+    public RegisterDto(String uNickName, String uEmailAddress, String uPassword,int remainingNumber,Boolean isPassive) {
         this.uNickName = uNickName;
         this.uEmailAddress = uEmailAddress;
         this.uPassword = uPassword;
+        this.remainingNumber = remainingNumber;
+        this.isPassive = isPassive;
     }
 
-    public RegisterDto(Long id, Date systemCreatedDate, String uNickName, String uEmailAddress, String uPassword) {
+    // Constructor (parametreli)
+    // Overloadinng
+    public RegisterDto(Long id, Date systemCreatedDate, String uNickName, String uEmailAddress, String uPassword,int remainingNumber,Boolean isPassive) {
         super(id, systemCreatedDate);
         this.uNickName = uNickName;
         this.uEmailAddress = uEmailAddress;
         this.uPassword = uPassword;
+        this.remainingNumber = remainingNumber;
+        this.isPassive = isPassive;
     }
 
     // toString
@@ -38,6 +46,8 @@ public class RegisterDto extends  BaseDto implements Serializable {
                 "uNickName='" + uNickName + '\'' +
                 ", uEmailAddress='" + uEmailAddress + '\'' +
                 ", uPassword='" + uPassword + '\'' +
+                ", remainingNumber='" + remainingNumber + '\'' +
+                ", isPassive='" + isPassive + '\'' +
                 ", id=" + id +
                 ", systemCreatedDate=" + systemCreatedDate +
                 "} " + super.toString();
@@ -67,4 +77,20 @@ public class RegisterDto extends  BaseDto implements Serializable {
     public void setuPassword(String uPassword) {
         this.uPassword = uPassword;
     }
-} //end  class} //end  class
+
+    public int getRemainingNumber() {
+        return remainingNumber;
+    }
+
+    public void setRemainingNumber(int remainingNumber) {
+        this.remainingNumber = remainingNumber;
+    }
+
+    public Boolean getPassive() {
+        return isPassive;
+    }
+
+    public void setPassive(Boolean passive) {
+        isPassive = passive;
+    }
+} //end  class
